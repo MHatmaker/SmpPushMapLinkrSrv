@@ -1,5 +1,5 @@
 {
-  "name": "simpleserver",
+  "name": "smppushmaplinkrsrv",
   "version": "1.0.0",
   "description": "Set up to run on Heroku.",
   "main": "server.js",
@@ -9,12 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MHatmaker/SmpPushSrv.git"
+    "url": "git+https://github.com/MHatmaker/SmpPushMapLinkrSrv.git"
   },
   "keywords": [
     "heroku",
     "nodejs",
-    "simpleserver"
+    "smppushmaplinkrsrv"
   ],
   "author": "mhatmaker",
   "license": "ISC",
@@ -24,7 +24,7 @@
     "express": "~4.13.1",
     "express-resource": "1.0.0",
     "http": "0.0.0",
-    "morgan": "1.9.0",
+    "morgan": "1.9.1",
     "node-mailjet": "^3.2.1",
     "nodemailer": "^4.6.8",
     "path": "0.12.7",
@@ -33,10 +33,10 @@
     "static-favicon": "2.0.0-alpha"
   },
   "bugs": {
-    "url": "https://github.com/MHatmaker/SmpPushSrv/issues"
+    "url": "https://github.com/MHatmaker/SmpPushMapLinkrSrv/issues"
   },
   "engines": {
     "node": "6.5.0"
   },
-  "homepage": "https://github.com/MHatmaker/SmpPushSrv#readme"
+  "homepage": "https://github.com/MHatmaker/SmpPushMapLinkrSrv#readme"
 }
