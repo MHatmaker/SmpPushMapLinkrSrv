@@ -1,0 +1,8 @@
+ngrok
+.git
+hkpass
+gitpass
+node_modules/
+npm-debug.log
+.DS_Store
+/*.env
