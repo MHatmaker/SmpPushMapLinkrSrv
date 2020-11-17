@@ -182,6 +182,7 @@ exports.getHostEnvironment = function (req, res) {
     res.json(env);
 };
 
+<<<<<<< HEAD
 exports.getUserNameQuick = function() {
     "use strict";
     if (seqNo === namesLength) {
@@ -193,6 +194,8 @@ exports.getUserNameQuick = function() {
     return userNames[seqNo-1].name;
 }
 
+=======
+>>>>>>> 3bf72defb3dc3b3afaefc83425bab6c6df47dfde
 exports.getUserName = function (req, res) {
     "use strict";
     console.log("API getUserName");
@@ -231,7 +234,11 @@ exports.getPusherKeys = function (req, res) {
     console.log("pusherkeys");
     console.log(pusherkeys);
     loadHeaders(req, res);
+<<<<<<< HEAD
     res.json({"pusherkeys" : pusherkeys});
+=======
+    res.json("pusherkeys" : pusherkeys);
+>>>>>>> 3bf72defb3dc3b3afaefc83425bab6c6df47dfde
 };
 
 exports.getNextWindowSeqNo = function (req, res) {

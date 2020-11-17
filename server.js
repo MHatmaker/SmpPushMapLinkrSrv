@@ -1,5 +1,9 @@
 #!/bin/env node
+<<<<<<< HEAD
 //  heroku sample Node application
+=======
+//  OpenShift sample Node application
+>>>>>>> 3bf72defb3dc3b3afaefc83425bab6c6df47dfde
 
 /*global require, console */
 /*global process */
@@ -47,8 +51,11 @@ pusher = new Pusher({appId: app_id, key: app_key, secret: app_secret});
 api.setPusher(pusher);
 api.setNodeMailer(nodeMailer);
 
+<<<<<<< HEAD
 var getUserNameQuick = null;
 
+=======
+>>>>>>> 3bf72defb3dc3b3afaefc83425bab6c6df47dfde
 /**
  *  Define the sample application.
  */
@@ -67,11 +74,28 @@ MasherNodeApp = function () {
      */
     self.setupVariables = function () {
         //  Set the environment variables we need.
+<<<<<<< HEAD
         self.port      = process.env.PORT || 3000;
         api.setHostEnvironment('https://maplinkr-simpleserver.herokuapp.com', '8100');
         console.log('listen on:');
         console.log(self.port);
 
+=======
+        self.ipaddress = process.env.OPENSHIFT_NODEJS_IP  || '127.0.0.1';
+        self.port      = process.env.PORT || 3000; //process.env.OPENSHIFT_NODEJS_PORT || 3035;
+        // api.setHostEnvironment(self.ipaddress, self.port);
+        api.setHostEnvironment('https://maplinkr-simpleserver.herokuapp.com', '8100');
+        console.log('listen on:');
+        console.log(self.port);
+        console.log(self.ipaddress);
+
+        if (self.ipaddress === "undefined") {
+            //  Log errors on OpenShift but continue w/ 127.0.0.1 - this
+            //  allows us to run/test the app locally.
+            console.warn('No OPENSHIFT_NODEJS_IP var, using 127.0.0.1');
+            self.ipaddress = "127.0.0.1";
+        }
+>>>>>>> 3bf72defb3dc3b3afaefc83425bab6c6df47dfde
     };
 
 
@@ -173,7 +197,11 @@ urls = (
         self.getroutes['/authremote/arcgis'] = api.getAuthArcGIS;
         self.getroutes['/listingsremote'] = api.getItems;
         self.postroutes['/send-email'] = api.postEmail;
+<<<<<<< HEAD
         self.getroutes['/pusherkeys'] = api.getPusherKeys;
+=======
+        self.postroutes['/pusherkeys'] = api.getPusherKeys;
+>>>>>>> 3bf72defb3dc3b3afaefc83425bab6c6df47dfde
 
         // self.getroutes['/pusher/auth'] = api.getAuth;
         self.app.get('/pusher/auth', function (req, res) {
@@ -181,6 +209,7 @@ urls = (
             console.log('%s %s %s', req.method, req.url, req.path);
             console.log('req.body.socket_id is %s', req.query.socket_id);
             console.log('req.body.channel_name is %s', req.query.channel_name);
+<<<<<<< HEAD
 
             var uname = getUserNameQuick();
             const presenceData = {
@@ -195,6 +224,12 @@ urls = (
                 channel = req.query.channel_name,
                 callback = req.query.callback,
                 auth = JSON.stringify(pusher.authenticate(socketId, channel, presenceData)),
+=======
+            var socketId = req.query.socket_id,
+                channel = req.query.channel_name,
+                callback = req.query.callback,
+                auth = JSON.stringify(pusher.authenticate(socketId, channel)),
+>>>>>>> 3bf72defb3dc3b3afaefc83425bab6c6df47dfde
                 cb = callback.replace(/\"/g, "") + "(" + auth + ");";
             res.set({
                 "Content-Type": "application/javascript"
@@ -296,6 +331,19 @@ urls = (
     self.start = function () {
         //  Start the app on the specific interface (and port).
         console.log("now start");
+<<<<<<< HEAD
+=======
+        /*
+        self.app.listen(self.port, self.ipaddress, function() {
+            console.log('%s: Node server started on %s:%d ...',
+                        Date(Date.now() ), self.ipaddress, self.port);
+        });
+         */
+         /*
+        var server = self.app.listen(self.port, self.ipaddress),
+            io = require('socket.io').listen(server);
+        */
+>>>>>>> 3bf72defb3dc3b3afaefc83425bab6c6df47dfde
         var server = self.app.listen(self.port, function () {
                 console.log('Our app is running on http://localhost:' + self.port);
             }),
